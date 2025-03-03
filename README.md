@@ -1,2 +1,2 @@
 # pjselect
-Chrome extension config file
+Chrome extension update file
