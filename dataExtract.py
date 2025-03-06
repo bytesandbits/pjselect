@@ -35,8 +35,11 @@ if __name__ == "__main__":
     github_token = os.environ.get("GH_TOKEN")  
     repo_name = os.environ.get("GH_REPOSITORY")
 
-    if not github_token or not repo_name:
-        print("Error: GH_TOKEN or GH_REPOSITORY environment variables not set.")
+    if not github_token:
+        print("Error: GH_TOKEN environment variables not set.")
+        exit(1)
+    if not repo_name:
+        print("Error: GH_REPOSITORY environment variables not set.")
         exit(1)
 
     start_date = "2023-01-01"
