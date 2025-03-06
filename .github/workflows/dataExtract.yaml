@@ -24,3 +24,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPOSITORY: ${{ secrets.GH_REPOSITORY }}
+
+      - name: Display Pull Request Titles
+        run: cat list.log
