@@ -1,4 +1,1 @@
 PyGithub
-requests
-os
-datetime
