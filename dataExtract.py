@@ -2,16 +2,6 @@ import os
 from github import Github
 from datetime import datetime, timedelta
 def list_pull_requests(token, repo_name, start_date_str, end_date_str, output_file="list.log"):
-     """
-    Lists all pull requests in a repository within a given date range and writes them to a file.
-
-    Args:
-        token (str): GitHub personal access token.
-        repo_name (str): The repository name (e.g., "owner/repo").
-        start_date_str (str): Start date in YYYY-MM-DD format.
-        end_date_str (str): End date in YYYY-MM-DD format.
-        output_file (str): The name of the output file.
-    """
     try:
         g = Github(token)
         repo = g.get_repo(repo_name)
