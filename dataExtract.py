@@ -32,7 +32,7 @@ def list_pull_requests(token, repo_name, start_date_str, end_date_str, output_fi
 
 if __name__ == "__main__":
     # Use different names for the environment variables
-    github_token = os.environ.get("GH_TOKEN")  
+    github_token = os.environ.get("GITHUBH_TOKEN")  
     repo_name = os.environ.get("GH_REPOSITORY")
 
     if not github_token:
