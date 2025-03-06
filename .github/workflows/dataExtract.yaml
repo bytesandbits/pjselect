@@ -23,3 +23,4 @@ jobs:
         run: python dataExtract.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPOSITORY: ${{ secrets.GH_REPOSITORY }}
