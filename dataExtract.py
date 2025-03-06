@@ -1,9 +1,8 @@
 import os
 from github import Github
 from datetime import datetime, timedelta
-
 def list_pull_requests(token, repo_name, start_date_str, end_date_str, output_file="list.log"):
-    """
+     """
     Lists all pull requests in a repository within a given date range and writes them to a file.
 
     Args:
@@ -19,17 +18,21 @@ def list_pull_requests(token, repo_name, start_date_str, end_date_str, output_fi
 
         start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
         end_date = datetime.strptime(end_date_str, "%Y-%m-%d") + timedelta(days=1)
-        print("Fetching pull requests")
+
         pull_requests = repo.get_pulls(state="all", sort="created", direction="desc")
 
+        print(f"Attempting to create file: {output_file}") #added line.
         with open(output_file, "w") as f:
+            print(f"File {output_file} created.") #added line.
             for pr in pull_requests:
                 if start_date <= pr.created_at <= end_date:
                     f.write(f"{pr.title}\n")
-                    print(f"{pr.title}\n")
+                    print(f"Wrote PR: {pr.title}") #added line.
+        print(f"File {output_file} writing finished.") #added line.
 
     except Exception as e:
         print(f"Error: {e}")
+
 
 if __name__ == "__main__":
     # Use different names for the environment variables
