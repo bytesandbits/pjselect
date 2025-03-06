@@ -19,13 +19,14 @@ def list_pull_requests(token, repo_name, start_date_str, end_date_str, output_fi
 
         start_date = datetime.strptime(start_date_str, "%Y-%m-%d")
         end_date = datetime.strptime(end_date_str, "%Y-%m-%d") + timedelta(days=1)
-
+        print("Fetching pull requests")
         pull_requests = repo.get_pulls(state="all", sort="created", direction="desc")
 
         with open(output_file, "w") as f:
             for pr in pull_requests:
                 if start_date <= pr.created_at <= end_date:
                     f.write(f"{pr.title}\n")
+                    print(f"{pr.title}\n")
 
     except Exception as e:
         print(f"Error: {e}")
@@ -43,6 +44,6 @@ if __name__ == "__main__":
         exit(1)
 
     start_date = "2023-01-01"
-    end_date = "2023-12-31"
+    end_date = "2025-12-31"
 
     list_pull_requests(github_token, repo_name, start_date, end_date)
