@@ -13,6 +13,7 @@ def list_pull_requests(token, repo_name, start_date_str, end_date_str, output_fi
 
         print(f"Attempting to create file: {output_file}") #added line.
         with open(output_file, "w") as f:
+            f.write("The PR list is as follows:")
             print(f"File {output_file} created.") #added line.
             for pr in pull_requests:
                 if start_date <= pr.created_at <= end_date:
